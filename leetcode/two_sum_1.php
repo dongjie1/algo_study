@@ -5,6 +5,13 @@
  */
 
 class Solution {
+    /**
+     * @param array $nums
+     * @param int $target
+     * @return int[]|null
+     * 时间复杂度 O(n^2)
+     * 空间复杂度 O(1)
+     */
     function twoSum($nums=array(),$target=0){
         if(empty($nums)) return null;
 
@@ -17,5 +24,24 @@ class Solution {
             }
         }
         return null;
+    }
+
+    /**
+     * @param array $nums
+     * @param int $target
+     * @return array|null
+     * 时间复杂度 O(n)
+     * 空间复杂度 O(n)
+     */
+    function twoSum2($nums=array(),$target=0){
+        if(empty($nums)) return null;
+
+        $tmp = [];
+        for($i=0; $i<count($nums); $i++){
+            if(isset($tmp[$target-$nums[$i]])){
+                return [$tmp[$nums[$i]], $i];
+            }
+            $tmp[$nums[$i]] = $i;
+        }
     }
 }
